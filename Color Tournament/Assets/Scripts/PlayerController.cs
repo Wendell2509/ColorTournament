@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     private float v;
     private float h;
 
+    //EFFECT ARRAY
+    [Header("Effect List")]
+    public GameObject jump_effect;
+
     //SOUND CLIPS
     private AudioSource source;
     public AudioClip jump_clip;
@@ -52,7 +56,7 @@ public class PlayerController : MonoBehaviour
                 //rb.AddForce(Vector2.up * forcaPulo);
 
                 rb.velocity = new Vector3(0, forcaPulo, 0);
-
+                JumpEffect();
                 source.PlayOneShot(jump_clip, volume_clip);
             }
         } else if (gameObject.name == "player2")
@@ -65,7 +69,7 @@ public class PlayerController : MonoBehaviour
                 //rb.AddForce(Vector2.up * forcaPulo);
 
                 rb.velocity = new Vector3(0, forcaPulo, 0);
-
+                JumpEffect();
                 source.PlayOneShot(jump_clip, volume_clip);
             }
         } else if (gameObject.name == "player3")
@@ -78,7 +82,7 @@ public class PlayerController : MonoBehaviour
                 //rb.AddForce(Vector2.up * forcaPulo);
 
                 rb.velocity = new Vector3(0, forcaPulo, 0);
-
+                JumpEffect();
                 source.PlayOneShot(jump_clip, volume_clip);
             }
         } else if (gameObject.name == "player4")
@@ -91,7 +95,7 @@ public class PlayerController : MonoBehaviour
                 //rb.AddForce(Vector2.up * forcaPulo);
 
                 rb.velocity = new Vector3(0, forcaPulo, 0);
-
+                JumpEffect();
                 source.PlayOneShot(jump_clip, volume_clip);
             }
         }
@@ -115,5 +119,10 @@ public class PlayerController : MonoBehaviour
     // UPDATE
     private void Update()
     {
+    }
+
+    public void JumpEffect()
+    {
+        Instantiate(jump_effect, transform.position, transform.rotation);
     }
 }

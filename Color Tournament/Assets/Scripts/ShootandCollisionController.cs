@@ -8,7 +8,7 @@ public class ShootandCollisionController : MonoBehaviour
     private Transform MiraE, MiraD;
     private Transform minhaPos;
 
-    //VARIAVEIS PRIVADAS-------------------------
+    //PRIVATE VARIABLES-------------------------
     private Renderer rend;
     private Renderer CRend;
     private int NumBullet;
@@ -24,14 +24,18 @@ public class ShootandCollisionController : MonoBehaviour
     private Color BlueC = Color.blue;
     private Color GreenC = Color.green;
 
-    //VARIAVEIS PUBLICAS-------------------------
-    [Header("Variáveis Públicas")]
+    //PUBLIC VARIABLES-------------------------
+    [Header("Shoot Public Variables")]
     public float coolDownFire = 0.5f;
     public float coolDownFireTimer;
 
     //ARRAY DE OBJETOS ATIRAVEIS ESQ E DIR
-    [Header("Array GameObjects Shoot")]
+    [Header("GameObjects Shoot List")]
     public GameObject[] shoot;
+
+    //EFFECT ARRAY
+    [Header("Effect List")]
+    public GameObject hit_effect;
 
     //SOUND CLIPS
     private AudioSource source;
@@ -411,21 +415,30 @@ public class ShootandCollisionController : MonoBehaviour
             if ((c.gameObject.name == "bulletL(Clone)" || c.gameObject.name == "bulletR(Clone)") && c.gameObject.tag == "s_white")
             {
                 Invoke("MudarWhite", 0.1f);
+                HitEffect();
             }
             if ((c.gameObject.name == "bulletL(Clone)" || c.gameObject.name == "bulletR(Clone)") && c.gameObject.tag == "s_red")
             {
                 Invoke("MudarRed", 0.1f);
+                HitEffect();
             }
             if ((c.gameObject.name == "bulletL(Clone)" || c.gameObject.name == "bulletR(Clone)") && c.gameObject.tag == "s_blue")
             {
                 Invoke("MudarBlue", 0.1f);
+                HitEffect();
             }
             if ((c.gameObject.name == "bulletL(Clone)" || c.gameObject.name == "bulletR(Clone)") && c.gameObject.tag == "s_green")
             {
                 Invoke("MudarGreen", 0.1f);
+                HitEffect();
             }
         }
     }
 
     #endregion Collision
+
+    public void HitEffect()
+    {
+        Instantiate(hit_effect, transform.position, transform.rotation);
+    }
 }

@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +15,11 @@ public class GameManager_ : MonoBehaviour
     public static int scoreW, scoreR, scoreB, scoreK; //STATIC BECAUSE IT DONT DESTROY ON LOAD
     public int scoreToWin = 5;
 
+    //SOUND CLIPS
+    private AudioSource source;
+    public AudioClip WinRound_clip;
+    public float volume_clip = 0.03f;
+
     //INT TOTAL PLAYERS == FIND PLAYER 1 + FIND PLAYER 2 + FIND PLAYER 3 + FIND PLAYER 4
 
     public enum MODES
@@ -29,7 +34,8 @@ public class GameManager_ : MonoBehaviour
     //START________________________________________________________________________________________
     public void Start()
     {
-        //NOBODY WON YET
+        //GET AUDIO SOURCE
+        source = GetComponent<AudioSource>();
 
         //BASED IN THE SELECTION IN THE INSPECTOR OF THE LEVEL WILL CHANGE THE GAME MODE
         if (modes == MODES.Classic)
@@ -206,7 +212,8 @@ public class GameManager_ : MonoBehaviour
 
     private IEnumerator ReloadScene()
     {
-        int index = UnityEngine.Random.Range(2,6);
+        source.PlayOneShot(WinRound_clip, volume_clip);
+        int index = UnityEngine.Random.Range(2, 6);
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(index);
 
@@ -215,6 +222,7 @@ public class GameManager_ : MonoBehaviour
 
     private IEnumerator GoToVictoryScene()
     {
+        source.PlayOneShot(WinRound_clip, volume_clip);
         yield return new WaitForSeconds(1.5f);
         resetScore();
         SceneManager.LoadScene(6); //CHECK IF IT IS THE VICTORY SCENE

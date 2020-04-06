@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4670412118200769153}
   m_Layer: 0
   m_Name: bulletL
-  m_TagString: s_red
+  m_TagString: s_blue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,6 +136,8 @@ MonoBehaviour:
   EncostarMorre: 0
   force: 4000
   dieTime: 5
+  hitSmall_Effect: {fileID: 6726473568415640901, guid: 9502a725a7bb4044e82367b1e622dd70,
+    type: 3}
   hit_clip: {fileID: 8300000, guid: 05d3a0989fe2fb949975037515cfdd6e, type: 3}
 --- !u!82 &4670412118200769153
 AudioSource:

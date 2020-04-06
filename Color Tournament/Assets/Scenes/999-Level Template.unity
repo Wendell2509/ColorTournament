@@ -514,6 +514,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JoinManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6062836180128641016, guid: 480f62398e01b124aa9499e225be2305,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6062836180128641018, guid: 480f62398e01b124aa9499e225be2305,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2864,6 +2869,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: player4
       objectReference: {fileID: 0}
+    - target: {fileID: 1166440326752661287, guid: e15881cb1d91e1d4b867706f6a4a8adc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1166440326752661282, guid: e15881cb1d91e1d4b867706f6a4a8adc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3145,6 +3155,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: player3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480921512571577245, guid: a3ffbacf26cd80046a35b7d5a04dda32,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3480921512571577240, guid: a3ffbacf26cd80046a35b7d5a04dda32,
         type: 3}

@@ -215,8 +215,9 @@ MonoBehaviour:
   shoot:
   - {fileID: 1249628397, guid: e8fde43e264f07243b85a567e838ccf9, type: 3}
   - {fileID: 2943082034543464116, guid: ae5355953b8d57e4cb74e817b0e1743d, type: 3}
+  hit_effect: {fileID: 5927047552646526250, guid: 1aa869c1f611f8740b39452c29b7edc2,
+    type: 3}
   shoot_clip: {fileID: 8300000, guid: 82356817f507c864caf94b978e09e4bd, type: 3}
-  death_clip: {fileID: 8300000, guid: f8047ccea5d8dfb47a41b87a5f8543ec, type: 3}
 --- !u!114 &99982296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +234,8 @@ MonoBehaviour:
   speed: 6
   forcaPulo: 10
   Nochao: 0
+  jump_effect: {fileID: 7819051211541987229, guid: 94e37bc7a6e4e904ca9dea78b2f2fecf,
+    type: 3}
   jump_clip: {fileID: 8300000, guid: bb2ad281c36e0fb46855a37d6285027a, type: 3}
 --- !u!58 &682106078
 CircleCollider2D:

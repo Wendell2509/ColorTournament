@@ -20,6 +20,10 @@ public class shootMoviment : MonoBehaviour
     private Color BlueC = Color.blue;
     private Color GreenC = Color.green;
 
+    //EFFECT ARRAY
+    [Header("Effect List")]
+    public GameObject hitSmall_Effect;
+
     //SOUND CLIPS
     private AudioSource source;
     public AudioClip hit_clip;
@@ -70,9 +74,15 @@ public class shootMoviment : MonoBehaviour
     {
     }
 
+    public void HitSmallEffect()
+    {
+        Instantiate(hitSmall_Effect, transform.position, transform.rotation);
+    }
+
     private void OnCollisionEnter2D(Collision2D c)
     {
         source.PlayOneShot(hit_clip, volume_clip);
+        HitSmallEffect();
 
         if (EncostarMorre)
         {
