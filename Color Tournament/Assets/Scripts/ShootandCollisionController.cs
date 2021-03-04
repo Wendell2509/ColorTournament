@@ -38,6 +38,7 @@ public class ShootandCollisionController : MonoBehaviour
     public GameObject hit_effect;
 
     //SOUND CLIPS
+    [Header("Sound Config")]
     private AudioSource source;
     public AudioClip shoot_clip;
     private float volume_clip = 0.15f;
@@ -56,7 +57,9 @@ public class ShootandCollisionController : MonoBehaviour
         MiraE = this.gameObject.transform.GetChild(1);
         MiraD = this.gameObject.transform.GetChild(2);
 
-        //COR DO INICIO DE CADA PLAYER POR NOME
+        #region InitialConfig
+
+        //INITIAL COLOR/TAG/CONFIG BY NAME
         if (gameObject.name == "player1")
         {
             //print("player1 Join");
@@ -74,6 +77,8 @@ public class ShootandCollisionController : MonoBehaviour
             //print("player4 Join");
             MudarGreen();
         }
+
+        #endregion InitialConfig
     }
 
     // UPDATE/////////////////////////////////////////////////////
@@ -296,11 +301,11 @@ public class ShootandCollisionController : MonoBehaviour
 
     private void AtirarE()
     {
-        if (gameObject.tag == "white")
+        if (gameObject.tag == "white") //VERIFY THE TAG
         {
-            shoot[NumBullet].tag = "s_white";
-            shoot[NumBullet + 1].tag = "s_white";
-            Instantiate(shoot[NumBullet], MiraE.transform.position, MiraE.transform.rotation);
+            shoot[NumBullet].tag = "s_white"; //SET THE TAG FOR THE BULLET BY THE MAIN TAG
+            shoot[NumBullet + 1].tag = "s_white"; // SET THE TAG FOR THE SECOND BULLET  ''
+            Instantiate(shoot[NumBullet], MiraE.transform.position, MiraE.transform.rotation); // CREATE THE BULLET IN THE LEFT GUN POSITION
         } else if (gameObject.tag == "red")
         {
             shoot[NumBullet].tag = "s_red";
@@ -346,15 +351,15 @@ public class ShootandCollisionController : MonoBehaviour
 
     #endregion Shoot
 
-    #region MUDAR CORES
+    #region ChangeColors
 
     private void MudarWhite()
     {
-        transform.tag = "white";
-        rend.material.color = WhiteC;
+        transform.tag = "white"; //CHANGES THE TAG
+        rend.material.color = WhiteC; //CHANGES THE MATERIAL COLOR
 
-        //TIPOS DE BULLET PARA CADA MODALIDADE DE JOGO
-        if ((mode_ == 0))
+        //TYPES OF BULLETS FOR EACH MODE
+        if ((mode_ == 0))//CLASSIC MODE - CHANGE COLORS
         {
             shoot[NumBullet].tag = "s_white";
             shoot[NumBullet + 1].tag = "s_white";
@@ -404,18 +409,18 @@ public class ShootandCollisionController : MonoBehaviour
         }
     }
 
-    #endregion MUDAR CORES
+    #endregion ChangeColors
 
     #region Collision
 
     private void OnCollisionEnter2D(Collision2D c)
     {
-        if (changeColor)
+        if (changeColor) //IF CHANGE COLOR IS ENABLE
         {
-            if ((c.gameObject.name == "bulletL(Clone)" || c.gameObject.name == "bulletR(Clone)") && c.gameObject.tag == "s_white")
+            if ((c.gameObject.name == "bulletL(Clone)" || c.gameObject.name == "bulletR(Clone)") && c.gameObject.tag == "s_white") //TOUCHED THE WHITE BULLET
             {
-                Invoke("MudarWhite", 0.1f);
-                HitEffect();
+                Invoke("MudarWhite", 0.1f); // FUNCTION THAT CHANGES THE CONFIG TO WHITE
+                HitEffect(); // VISUAL EFFECT - "EXPLOSION"
             }
             if ((c.gameObject.name == "bulletL(Clone)" || c.gameObject.name == "bulletR(Clone)") && c.gameObject.tag == "s_red")
             {

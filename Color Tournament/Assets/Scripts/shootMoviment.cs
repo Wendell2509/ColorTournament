@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class shootMoviment : MonoBehaviour
 {
-    //tiro vai para esquerda? senao direita
+    [Header("Bullet Config")]
     public bool LeftShoot;
-    public bool EncostarMorre;
+    public bool InstantlyDeath;
+    public int force;
+    public float dieTime;
 
     //CODIGO QUE FAZ COM QUE A BULLET CONSIGA EMPURRAR O JOGADOR E CONSERTAR O ERRO DE COLISAO ENTRE COLLIDER
     private Rigidbody2D rb2;
     private Renderer rend;
-    public int force;
-    public float dieTime;
 
     //SETA AS CORES PADRÕES
     private Color WhiteC = Color.white;
@@ -25,13 +25,11 @@ public class shootMoviment : MonoBehaviour
     public GameObject hitSmall_Effect;
 
     //SOUND CLIPS
+    [Header("Sound Config")]
     private AudioSource source;
     public AudioClip hit_clip;
     private float volume_clip = 0.03f;
 
-    //VARIAVEIS PRIVADAS-------------------------
-
-    // Start is called before the first frame update
     private void Start()
     {
         //GET AUDIO SOURCE
@@ -84,7 +82,7 @@ public class shootMoviment : MonoBehaviour
         source.PlayOneShot(hit_clip, volume_clip);
         HitSmallEffect();
 
-        if (EncostarMorre)
+        if (InstantlyDeath)
         {
             Destroy(gameObject, 0.2f);
         }

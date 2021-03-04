@@ -51,13 +51,13 @@ public class PlayerController : MonoBehaviour
             h = Input.GetAxis("Horizontal1") * speed * Time.deltaTime;
             v = Input.GetAxis("Vertical1") * Time.deltaTime;
 
-            if (Input.GetAxis("Vertical1") > 0 && Nochao)
+            if (Input.GetAxis("Vertical1") > 0 && Nochao) //VERIFY IF ITS ON THE FLOOR AND BUTTON PRESSED TO JUMP
             {
                 //rb.AddForce(Vector2.up * forcaPulo);
 
-                rb.velocity = new Vector3(0, forcaPulo, 0);
-                JumpEffect();
-                source.PlayOneShot(jump_clip, volume_clip);
+                rb.velocity = new Vector3(0, forcaPulo, 0); //JUMP FORCE
+                JumpEffect(); // VISUAL EFFECT
+                source.PlayOneShot(jump_clip, volume_clip); //JUMP SOUND
             }
         } else if (gameObject.name == "player2")
         {
@@ -105,18 +105,12 @@ public class PlayerController : MonoBehaviour
 
         #endregion Moviment
 
-        //MOVES THE PLAYER BASED IN THE INPUTS
-        transform.Translate(h * Time.deltaTime, 0, 0);
+        transform.Translate(h * Time.deltaTime, 0, 0); //MOVES THE PLAYER BASED IN THE INPUTS
 
-        //VERIFICADOR DE COLISAO COM O CHAO OU OBJETO ABAIXO DELE
+        //VERIFY THE COLLISION WITH THE FLOOR
         Nochao = Physics2D.Linecast(transform.position, chaoVerificador.position, 1 << LayerMask.NameToLayer("Ground"));
-
-        //print("h: " + h);
-
-        //FIM DO UPDT
     }
 
-    // UPDATE
     private void Update()
     {
     }

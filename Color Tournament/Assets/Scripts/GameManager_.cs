@@ -7,15 +7,19 @@ using UnityEngine.UI;
 
 public class GameManager_ : MonoBehaviour
 {
-    public int playersCount; //COUNT HOW MANY PLAYERS IN THE SCENE
-    public int p1Alive, p2Alive, p3Alive, p4Alive; //SHOWS WHICH PLAYERS ARE ALIVE
+    //INFO TO VERIFY THE PLAYERS
     public static int gameMode;//0 classic / 1 other** <<GAME MANAGER PASS THE INFO TO THE PLAYERS
-    private bool win = false;
     public static bool p1win, p2win, p3win, p4win;
-    public static int scoreW, scoreR, scoreB, scoreK; //STATIC BECAUSE IT DONT DESTROY ON LOAD
+    private int playersCount; //COUNT HOW MANY PLAYERS IN THE SCENE
+    private int p1Alive, p2Alive, p3Alive, p4Alive; //SHOWS WHICH PLAYERS ARE ALIVE
+    private bool win = false;
+
+    [Header("Points to Win")]
     public int scoreToWin = 5;
+    public static int scoreW, scoreR, scoreB, scoreK; //STATIC BECAUSE IT DONT DESTROY ON LOAD
 
     //SOUND CLIPS
+    [Header("Sound Config")]
     private AudioSource source;
     public AudioClip WinRound_clip;
     public float volume_clip = 0.03f;
@@ -213,7 +217,7 @@ public class GameManager_ : MonoBehaviour
     private IEnumerator ReloadScene()
     {
         source.PlayOneShot(WinRound_clip, volume_clip);
-        int index = UnityEngine.Random.Range(2, 6);
+        int index = UnityEngine.Random.Range(3, 9); //CHECK IF IT IS THE GAME SCENES
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(index);
 
@@ -225,7 +229,7 @@ public class GameManager_ : MonoBehaviour
         source.PlayOneShot(WinRound_clip, volume_clip);
         yield return new WaitForSeconds(1.5f);
         resetScore();
-        SceneManager.LoadScene(6); //CHECK IF IT IS THE VICTORY SCENE
+        SceneManager.LoadScene(2); //CHECK IF IT IS THE VICTORY SCENE
     }
 
     private void resetScore()

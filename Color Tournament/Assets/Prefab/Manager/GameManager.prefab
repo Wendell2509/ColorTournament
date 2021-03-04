@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8034988442455224399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0045638, y: -1.9065486, z: -0.15039062}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,11 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d39744224ecd0e54db2229ed9791a285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersCount: 0
-  p1Alive: 0
-  p2Alive: 0
-  p3Alive: 0
-  p4Alive: 0
   scoreToWin: 5
   WinRound_clip: {fileID: 8300000, guid: 35781a4ea9097cd44986fec4702e9f21, type: 3}
   volume_clip: 0.2

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4670412118200769153}
   m_Layer: 0
   m_Name: bulletL
-  m_TagString: s_blue
+  m_TagString: s_red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LeftShoot: 1
-  EncostarMorre: 0
+  InstantlyDeath: 0
   force: 4000
   dieTime: 5
   hitSmall_Effect: {fileID: 6726473568415640901, guid: 9502a725a7bb4044e82367b1e622dd70,
